@@ -307,6 +307,10 @@ describe('resolver', function () {
             fileName: 'node_modules/browserify-zlib',
             aboveFilePath: path.join(rootDir, 'foo.js'),
           },
+          {
+            fileName: 'package.json',
+            aboveFilePath: require.resolve('browserify-zlib/lib/index.js'),
+          },
         ],
         invalidateOnFileChange: [
           path.join(rootDir, 'package.json'),
@@ -338,6 +342,10 @@ describe('resolver', function () {
           {
             fileName: 'node_modules/browserify-zlib',
             aboveFilePath: path.join(rootDir, 'foo.js'),
+          },
+          {
+            fileName: 'package.json',
+            aboveFilePath: require.resolve('browserify-zlib/lib/index.js'),
           },
         ],
         invalidateOnFileChange: [
@@ -465,6 +473,13 @@ describe('resolver', function () {
             fileName: 'node_modules/package-main',
             aboveFilePath: path.join(rootDir, 'foo.js'),
           },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(
+              rootDir,
+              'node_modules/package-main/main.js',
+            ),
+          },
         ],
         invalidateOnFileChange: [
           path.join(rootDir, 'package.json'),
@@ -501,6 +516,13 @@ describe('resolver', function () {
           {
             fileName: 'node_modules/package-module',
             aboveFilePath: path.join(rootDir, 'foo.js'),
+          },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(
+              rootDir,
+              'node_modules/package-module/module.js',
+            ),
           },
         ],
         invalidateOnFileChange: [
@@ -539,6 +561,13 @@ describe('resolver', function () {
             fileName: 'node_modules/package-browser',
             aboveFilePath: path.join(rootDir, 'foo.js'),
           },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(
+              rootDir,
+              'node_modules/package-browser/browser.js',
+            ),
+          },
         ],
         invalidateOnFileChange: [
           path.join(rootDir, 'package.json'),
@@ -575,6 +604,13 @@ describe('resolver', function () {
           {
             fileName: 'node_modules/package-browser',
             aboveFilePath: path.join(rootDir, 'foo.js'),
+          },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(
+              rootDir,
+              'node_modules/package-browser/main.js',
+            ),
           },
         ],
         invalidateOnFileChange: [
@@ -1066,6 +1102,13 @@ describe('resolver', function () {
                 'bar.json',
               ),
             },
+            {
+              fileName: 'package.json',
+              aboveFilePath: path.join(
+                rootDir,
+                'node_modules/side-effects-package-redirect-up/foo/real-bar.js',
+              ),
+            },
           ],
           invalidateOnFileChange: [
             path.join(rootDir, 'package.json'),
@@ -1137,6 +1180,13 @@ describe('resolver', function () {
                 'side-effects-package-redirect-down',
                 'foo',
                 'bar.json',
+              ),
+            },
+            {
+              fileName: 'package.json',
+              aboveFilePath: path.join(
+                rootDir,
+                'node_modules/side-effects-package-redirect-down/foo/bar/baz/real-bar.js',
               ),
             },
           ],
@@ -1361,6 +1411,13 @@ describe('resolver', function () {
           {
             fileName: 'node_modules/package-browser-alias',
             aboveFilePath: path.join(rootDir, 'foo.js'),
+          },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(
+              rootDir,
+              'node_modules/package-browser-alias/browser.js',
+            ),
           },
         ],
         invalidateOnFileChange: [
@@ -2177,6 +2234,10 @@ describe('resolver', function () {
             fileName: 'node_modules/package-browser-exclude',
             aboveFilePath: path.join(rootDir, 'foo.js'),
           },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(__dirname, '..', 'src', '_empty.js'),
+          },
         ],
         invalidateOnFileChange: [
           path.join(rootDir, 'package.json'),
@@ -2186,6 +2247,7 @@ describe('resolver', function () {
             'package-browser-exclude',
             'package.json',
           ),
+          path.join(__dirname, '..', 'package.json'),
         ],
       });
     });
@@ -2214,6 +2276,10 @@ describe('resolver', function () {
             fileName: 'node_modules/package-alias-exclude',
             aboveFilePath: path.join(rootDir, 'foo.js'),
           },
+          {
+            fileName: 'package.json',
+            aboveFilePath: path.join(__dirname, '..', 'src', '_empty.js'),
+          },
         ],
         invalidateOnFileChange: [
           path.join(rootDir, 'package.json'),
@@ -2223,6 +2289,7 @@ describe('resolver', function () {
             'package-alias-exclude',
             'package.json',
           ),
+          path.join(__dirname, '..', 'package.json'),
         ],
       });
     });
@@ -2253,6 +2320,13 @@ describe('resolver', function () {
             {
               fileName: 'node_modules/source',
               aboveFilePath: path.join(rootDir, 'foo.js'),
+            },
+            {
+              fileName: 'package.json',
+              aboveFilePath: path.join(
+                rootDir,
+                'node_modules/source/source.js',
+              ),
             },
           ],
           invalidateOnFileChange: [
@@ -2294,6 +2368,13 @@ describe('resolver', function () {
               fileName: 'node_modules/source-pnpm',
               aboveFilePath: path.join(rootDir, 'foo.js'),
             },
+            {
+              fileName: 'package.json',
+              aboveFilePath: path.join(
+                rootDir,
+                'node_modules/source-pnpm/dist.js',
+              ),
+            },
           ],
           invalidateOnFileChange: [
             path.join(rootDir, 'package.json'),
@@ -2332,6 +2413,13 @@ describe('resolver', function () {
             {
               fileName: 'node_modules/source-not-symlinked',
               aboveFilePath: path.join(rootDir, 'foo.js'),
+            },
+            {
+              fileName: 'package.json',
+              aboveFilePath: path.join(
+                rootDir,
+                'node_modules/source-not-symlinked/dist.js',
+              ),
             },
           ],
           invalidateOnFileChange: [
